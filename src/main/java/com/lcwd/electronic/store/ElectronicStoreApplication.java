@@ -1,9 +1,8 @@
 package com.lcwd.electronic.store;
 
-import com.lcwd.electronic.store.entities.Role;
-import com.lcwd.electronic.store.entities.User;
-import com.lcwd.electronic.store.repositories.RoleRepository;
-import com.lcwd.electronic.store.repositories.UserRepository;
+import java.util.Set;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -12,9 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import java.util.Arrays;
-import java.util.Set;
-import java.util.UUID;
+import com.lcwd.electronic.store.entities.Role;
+import com.lcwd.electronic.store.entities.User;
+import com.lcwd.electronic.store.repositories.RoleRepository;
+import com.lcwd.electronic.store.repositories.UserRepository;
 
 @SpringBootApplication
 @EnableWebMvc
@@ -49,9 +49,9 @@ public class ElectronicStoreApplication implements CommandLineRunner {
 
 
             User adminUser = User.builder()
-                    .name("Admin")
+                    .name("admin")
                     .email("admin@gmail.com")
-                    .password(passwordEncoder.encode("admin@123"))
+                    .password(passwordEncoder.encode("admin123"))
                     .gender("Male")
                     .imageName("default.png")
                     .roles(Set.of(role_admin, role_normal))
@@ -60,12 +60,12 @@ public class ElectronicStoreApplication implements CommandLineRunner {
                     .build();
 
             User normalUser = User.builder()
-                    .name("User")
-                    .email("user@gmail.com")
-                    .password(passwordEncoder.encode("user@123"))
+                    .name("durgesh")
+                    .email("durgesh@gmail.com")
+                    .password(passwordEncoder.encode("durgesh123"))
                     .gender("Male")
                     .imageName("default.png")
-                    .roles(Set.of(role_admin, role_normal))
+                    .roles(Set.of(role_normal))
                     .userId(UUID.randomUUID().toString())
                     .about("I am Normal User")
                     .build();

@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface OrderService {
 
+	OrderDto getOrder(String orderId);
     //create order
     OrderDto createOrder(CreateOrderRequest orderDto);
 
@@ -24,5 +25,5 @@ public interface OrderService {
     OrderDto updateOrder(String orderId, OrderUpdateRequest request);
 
     //order methods(logic) related to order
-
+    OrderDto updateOrder(String orderId,OrderDto request);
 }

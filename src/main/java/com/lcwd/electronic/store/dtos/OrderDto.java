@@ -26,6 +26,8 @@ public class OrderDto {
     private String billingName;
     private Date orderedDate=new Date();
     private Date deliveredDate;
+    private String razorPayOrderId;
+    private String paymentId;
     //private UserDto user;
     private List<OrderItemDto> orderItems = new ArrayList<>();
 
